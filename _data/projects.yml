@@ -1,16 +1,67 @@
 # Projects
 # uncomment the urls if you wish to display them, and add your own URL
 
-# jazznotes.io
-- project: jazznotes.io
-  role: Founder & Primary Developer
-  duration: 2012 &mdash; Present
-  # url: "#"
-  description: Jazz Notes is an open source node/ember app that helps you keep track of your music compositions and new ideas.
-
-# Springfield Community Outreach Group
-- project: Springfield Community Outreach Group
-  role: Co-Founder & Organizer
-  duration: 2007 &mdash; Present
-  # url: "#"
-  description: SCOG is a local monthly meetup in Springfield where we share opportunities to volunteer in the community and organize support for families and neighborhoods in need of assistance that the community can provide.
+# plantodo
+- project: plantodo
+  role: 백엔드 개발 (개인 프로젝트)
+  duration: 2023.06 - 2023.08
+  url: "https://github.com/yeonleaf/plantodo-renew"
+  description: >
+    <br>
+    <div>
+      <b>사용 기술</b>
+      <ul>
+        <li>
+          Java, Spring, Spring Data JPA, QueryDSL, MariaDB, EC2, swagger-ui, flyway
+        </li>
+      </ul>
+    </div>
+    <br>
+    <div>
+      <b>설명</b>
+      <ul class="resume-item-list">
+        <li>
+          일정과 할일을 관리하는 투두리스트 API입니다.
+        </li>
+        <li>
+          요청은 swagger-ui를 통해 보낼 수 있습니다.
+        </li>
+        <li>
+          JWT 토큰 방식의 인증을 사용했습니다.
+        </li>
+        <li>
+          EC2와 ELB를 사용해서 배포했습니다.
+        </li>
+      </ul>
+    </div>
+    <br>
+    <div>
+      <b>프로젝트를 진행하며 고민한 부분</b>
+      <ul class="resume-item-list">
+        <li>
+          TDD 방식으로 로직을 작성하며 로직의 80%를 약 300개의 테스트로 커버했습니다.
+        </li>
+        <li>
+          서비스 레이어에서 사용하는 리포지토리를 메모리를 사용하는 대역으로 대체하고 유닛 테스트 위주로 구성해 전체 테스트 실행 시간을 25sec에서 9sec으로 단축시켰습니다.
+          <ul class="resume-item-list">
+            <li>
+              서비스 객체를 리포지토리가 DB를 사용하는 실제 구현체와 메모리 대역을 사용하는 구현체로 분리했습니다.
+            </li>
+            <li>
+              서비스 인터페이스를 사용하여 테스트 서비스 구현체의 로직을 실제 서비스 구현체에 적용해도 바로 실행이 되도록 형식을 맞췄습니다. 그 과정에서 어댑터 패턴을 리포지토리에 적용했습니다.
+            </li>
+          </ul>
+        </li>
+        <li>
+          JPA가 @ElementCollection 값 타입 컬렉션을 관리하지 않아 수정할 때마다 모든 값을 삭제했다가 다시 등록해야 하는 단점을 해결했습니다.
+          <ul class="resume-item-list">
+            <li>
+              값 타입 컬렉션을 0과 1로 구성된 비트 문자열로 바꿨습니다.
+            </li>
+            <li>
+              요청이 들어왔을 때는 전용 Converter를 사용해서 리스트로 변환 후 리턴했습니다.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>

@@ -19,7 +19,7 @@ resume_title:                   "About me"
 # the next two items are used for schema itemprops in _layouts/resume.html
 # resume_contact_telephone:       ""
 # resume_contact_address:         "742 Evergreen Terrace, Springfield"
-resume_header_contact_info:     "<p>hcjy97@naver.com ● 010-2301-5071</p>"
+resume_header_contact_info:     "<p>hcjy97@naver.com</p>"
 display_header_contact_info:    "true"
 
 resume_header_intro: >

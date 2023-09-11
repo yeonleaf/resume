@@ -7,30 +7,45 @@
   duration: 2023.06 - 2023.08
   url: "https://github.com/yeonleaf/plantodo-renew"
   description: >
+    일정과 할일을 관리하는 투두리스트 API
+    <br>
     <br>
     <div>
       <b>사용 기술</b>
       <ul>
         <li>
-          Java, Spring, Spring Data JPA, QueryDSL, MariaDB, EC2, swagger-ui, flyway
+          Java, Spring, Spring Data JPA, QueryDSL, MySQL, Swagger-UI, flyway, EC2, <br> Github Actions, Docker compose
         </li>
       </ul>
     </div>
-    <br>
     <div>
       <b>설명</b>
       <ul class="resume-item-list">
         <li>
-          일정과 할일을 관리하는 투두리스트 API입니다.
+          회원가입 / 로그인 POST API, 일정 / 그룹 / 할일 CRUD HTTP API, 날짜 / 기간 단위로 조회하는 Collection 조회 API로 구성되어 있습니다.
+          <ul class="resume-item-list">
+            <li>애플리케이션의 상태를 전이하기 위해 Spring HATEOAS를 적용했습니다.</li>
+            <li>정상적인 요청은 EntityModel로 감싼 응답 객체를, 비정상적인 요청은 커스텀 에러 객체를 ResponseEntity에 담아 상태 코드와 함께 리턴합니다.</li>
+            <li>요청을 보낼 수 있는 Swagger-UI 기반 API 명세서를 제공합니다.</li>
+          </ul>
         </li>
-        <li>
-          요청은 swagger-ui를 통해 보낼 수 있습니다.
-        </li>
+        <br>
         <li>
           JWT 토큰 방식의 인증을 사용했습니다.
+          <ul class="resume-item-list">
+            <li>회원가입, 로그인 외 모든 요청에 Bearer {토큰} 형태의 Authorization 헤더가 있는지 확인하고 토큰이 유효한지 검증합니다.</li>
+            <li>요청이 들어오면 인터셉터에서 검증하고 올바른 요청이라면 이어서 처리합니다.</li>
+            <li>올바른 요청이 아니라면 인터셉터에서 Error response 객체를 던집니다.</li>
+          </ul> 
         </li>
+        <br>
         <li>
-          EC2와 ELB를 사용해서 배포했습니다.
+          Docker image를 EC2를 사용해서 배포했으며 CI/CD 툴로는 Github Actions를 사용했습니다.
+          <ul class="resume-item-list">
+            <li>commit / pull request 발생 시 Github Actions에서 Gradle 테스트 후 빌드합니다.</li>
+            <li>빌드한 .jar파일을 이용해 Docker image를 만들고 Docker Hub에 push합니다.</li>
+            <li>EC2 인스턴스에 ssh 연결로 접속 후 Docker Compose로 어플리케이션을 띄웁니다.</li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -39,27 +54,28 @@
       <b>프로젝트를 진행하며 고민한 부분</b>
       <ul class="resume-item-list">
         <li>
-          TDD 방식으로 로직을 작성하며 로직의 80%를 약 300개의 테스트로 커버했습니다.
-        </li>
-        <li>
-          서비스 레이어에서 사용하는 리포지토리를 메모리를 사용하는 대역으로 대체하고 유닛 테스트 위주로 구성해 전체 테스트 실행 시간을 25sec에서 9sec으로 단축시켰습니다.
-          <ul class="resume-item-list">
-            <li>
-              서비스 레이어에서 사용하는 리포지토리 객체를 DB를 사용하는 실제 구현체와 메모리 대역을 사용하는 구현체로 분리했습니다.
-            </li>
-            <li>
-              인터페이스를 사용해 테스트 서비스의 로직을 실제 서비스에 그대로 적용해도 되도록 형식을 맞췄습니다. 그 과정에서 어댑터 패턴을 리포지토리에 적용했습니다.
-            </li>
-          </ul>
-        </li>
-        <li>
-          JPA가 @ElementCollection 값 타입 컬렉션을 관리하지 않아 수정 시 모든 값을 삭제 후 다시 등록해야 하는 단점을 해결했습니다.
+          JPA가 @ElementCollection 값 타입 컬렉션을 관리하지 않아서 수정할 때 컬렉션에 있는 모든 값을 삭제하고 다시 등록해야 하는 단점을 해결했습니다.
           <ul class="resume-item-list">
             <li>
               값 타입 컬렉션을 0과 1로 구성된 비트 문자열로 바꿨습니다.
             </li>
             <li>
               요청이 들어왔을 때는 전용 Converter를 사용해서 리스트로 변환 후 리턴했습니다.
+            </li>
+          </ul>
+        </li>
+        <br>
+        <li>
+          TDD를 프로젝트에 적용하면서 아키텍쳐 설계에 대해 고민했고, 그 결과 테스트 코드 작성과 실제 동작 확인을 유기적으로 진행할 수 있었습니다.
+          <ul class="resume-item-list">
+            <li>
+              유닛 테스트를 최대한 많이 만들어 전체 테스트 속도를 줄이기 위해서 리포지토리 객체를 DB를 사용하는 실제 구현체와 메모리 대역을 사용하는 테스트용 구현체로 분리했습니다.
+            </li>
+            <li>
+              서비스에 인터페이스를 사용해 테스트 서비스의 로직을 실제 서비스에 그대로 적용할 수 있도록 형식을 맞췄습니다.
+            </li>
+            <li>
+              테스트 서비스와 실제 서비스가 서로 다른 리포지토리 구현체를 사용하는 경우를 해결하기 위해 어댑터 패턴을 리포지토리에 적용했습니다.
             </li>
           </ul>
         </li>

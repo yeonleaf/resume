@@ -1,29 +1,19 @@
 # Skills
 # Language
-- skill: Language
+- skill: Baekend
   description: >
     <ul>
       <li>
-        Java
-        <ul>
-          <li>Java의 기본 문법과 객체지향적 특징을 숙지했습니다.</li>
-          <li>Stream API를 사용해서 로직을 작성한 경험이 있습니다.</li>
-          <li>리포지토리에서 Null 처리를 위해서 Optional을 사용한 경험이 있습니다.</li>
-        </ul>
+        Java, JavaScript
       </li>
-    </ul>
-
-# Framework
-- skill: Framework
-  description: >
-    <ul>
       <li>
-        Spring Framework
-        <ul>
-          <li>Spring Web MVC를 사용해서 HTTP API를 작성할 수 있습니다.</li>
-          <li>Spring을 사용해서 예외 처리를 글로벌하게 할 수 있습니다.</li>
-          <li>자주 쓰이는 객체를 편리하게 쓰거나 테스트 환경을 조성하기 위해 수동 빈 등록을 <br>사용했습니다.</li>
-        </ul>
+        Spring Boot, Spring MVC, Spring Data JPA
+      </li>
+      <li>
+        JPA, QueryDSL, Hibernate
+      </li>
+      <li>
+        Junit5, Mockito
       </li>
     </ul>
 
@@ -32,17 +22,42 @@
   description: >
     <ul>
       <li>
-        MariaDB
-        <ul>
-          <li>MySQL 기반의 오픈소스인 MariaDB를 메인 DB로 사용하였으며 SQL과 NoSQL의 장단점을 알고 있습니다.</li>
-        </ul>
+        MySQL, MariaDB, H2
       </li>
       <li>
-        JPA
-        <ul>
-          <li>영속성 컨텍스트, 변경 감지, 지연 로딩과 같은 JPA의 매커니즘을 이해하고 있습니다.</li>
-          <li>JPA 구현체 Spring Data JPA, QueryDSL을 프로젝트에서 사용한 경험이 있습니다.</li>
-          <li>n+1 문제를 해결하기 위해 fetch join을 사용해 연관된 객체를 조회했습니다.</li>
-        </ul>
+        Flyway
+      </li>
+    </ul>
+
+# Framework
+- skill: DevOps
+  description: >
+    <ul>
+      <li>
+        AWS EC2
+      </li>
+      <li>
+        Docker, Docker-Compose
+      </li>
+      <li>
+        Github Actions
+      </li>
+    </ul>
+
+# Etc
+- skill: Etc
+  description: >
+    <ul>
+      <li>
+        IntellJ, Swagger-UI
+      </li>
+      <li>
+        Git / Github
+      </li>
+      <li>
+        HTTP/CSS, Javascript, React.js
+      </li>
+      <li>
+        C++
       </li>
     </ul>

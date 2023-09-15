@@ -1,63 +1,15 @@
 # Skills
 # Language
-- skill: Baekend
+- skill: Backend
   description: >
     <ul>
       <li>
-        Java, JavaScript
+        Java
       </li>
       <li>
-        Spring Boot, Spring MVC, Spring Data JPA
+        Spring Boot, Spring MVC
       </li>
       <li>
-        JPA, QueryDSL, Hibernate
-      </li>
-      <li>
-        Junit5, Mockito
-      </li>
-    </ul>
-
-# Database
-- skill: Database
-  description: >
-    <ul>
-      <li>
-        MySQL, MariaDB, H2
-      </li>
-      <li>
-        Flyway
-      </li>
-    </ul>
-
-# Framework
-- skill: DevOps
-  description: >
-    <ul>
-      <li>
-        AWS EC2
-      </li>
-      <li>
-        Docker, Docker-Compose
-      </li>
-      <li>
-        Github Actions
-      </li>
-    </ul>
-
-# Etc
-- skill: Etc
-  description: >
-    <ul>
-      <li>
-        IntellJ, Swagger-UI
-      </li>
-      <li>
-        Git / Github
-      </li>
-      <li>
-        HTTP/CSS, Javascript, React.js
-      </li>
-      <li>
-        C++
+        MySQL, JPA
       </li>
     </ul>
